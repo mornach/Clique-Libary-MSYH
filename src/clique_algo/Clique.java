@@ -49,6 +49,8 @@ public class Clique {
 		return this._clique;
 		
 	}
+	public int size() {return this._clique.size();}
+-	public VertexSet clique() {return this._clique;}
 	public void addVertex(int vertex){
 		_clique.add(vertex);
 		_Ni = _Ni.intersection(_graph.Ni(vertex));
