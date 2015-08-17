@@ -107,7 +107,7 @@ import java.util.Vector;
 	/*************** Clique Algorithms ******************/
 	/*Vector<VertexSet>  All_Cliques(int Q_size) {
 		Vector<VertexSet> ans = new Vector<VertexSet>();
-		Vector<VertexSet>C0 = allEdges(); // all edges – all cliques of size 2/
+		Vector<VertexSet>C0 = allEdges(); // all edges â€“ all cliques of size 2/
 		ans.addAll(C0);
 		for(int i=3;i<=Q_size;i++) {
 			Vector<VertexSet>C1 = allC(C0);
@@ -118,7 +118,7 @@ import java.util.Vector;
 	}
 	Vector<VertexSet>  All_Cliques(int min_Q_size, int max_Q_size) {
 		Vector<VertexSet> ans = new Vector<VertexSet>();
-		Vector<VertexSet> C0 = allEdges(), C1=null; // all edges – all cliques of size 2/
+		Vector<VertexSet> C0 = allEdges(), C1=null; // all edges â€“ all cliques of size 2/
 		for(int i=0;i<C0.size();i++) {
 			VertexSet curr = C0.elementAt(i);
 			C1 = All_Cliques_of_edge(curr, min_Q_size,  max_Q_size);
@@ -198,7 +198,7 @@ import java.util.Vector;
 	 * computes all the 2 cliques --> i.e. all the edges 
 	 * @return
 	 */
-	private Vector<VertexSet> allEdges() { // all edges – all cliques of size 2/
+	private Vector<VertexSet> allEdges() { // all edges â€“ all cliques of size 2/
 		Vector<VertexSet> ans = new Vector<VertexSet>();
 		for(int i=0;i<_V.size();i++) {
 			VertexSet curr = _V.elementAt(i);
@@ -222,7 +222,7 @@ import java.util.Vector;
 	Vector<VertexSet>  All_Cliques_DFS(int min_size, int max_size) {
 		Clique.init(this);
 		Vector<VertexSet> ans = new Vector<VertexSet>();
-		Vector<VertexSet>C0 = allEdges(); // all edges – all cliques of size 2/
+		Vector<VertexSet>C0 = allEdges(); // all edges â€“ all cliques of size 2/
 	//	ans.addAll(C0);
 		int len = C0.size();
 		//System.out.println("|E|= "+len);
@@ -245,7 +245,7 @@ import java.util.Vector;
 	 */
 	 public void All_Cliques_DFS(String out_file, int min_size, int max_size) {
 			Clique.init(this);
-			Vector<VertexSet>C0 = allEdges(); // all edges – all cliques of size 2/
+			Vector<VertexSet>C0 = allEdges(); // all edges â€“ all cliques of size 2/
 			int len = C0.size();
 			System.out.println("|E|= "+len);
 			int count = 0;
@@ -317,9 +317,11 @@ import java.util.Vector;
 			Clique curr = ans.elementAt(i);
 			if(curr.size()<max_size) {
 				VertexSet Ni = curr.commonNi();
+				if(Ni.size()+curr.size()>=min_size){
 				for(int a=0;a<Ni.size();a++) {
 					Clique c = new Clique(curr,Ni.at(a));
 					ans.add(c);
+				}
 				}
 			}
 			else {i=ans.size();} // speedup trick 
