@@ -41,14 +41,8 @@ public class Clique {
 			ans.append(_clique.at(i)).append(",");
 		return ans.toString;
 	}
-	public int size() {
-		return this._clique.size();
-		
-	}
-	public VertexSet clique() {
-		return this._clique;
-		
-	}
+	
+
 	public int size() {return this._clique.size();}
 -	public VertexSet clique() {return this._clique;}
 	public void addVertex(int vertex){
