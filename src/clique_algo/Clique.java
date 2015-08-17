@@ -28,26 +28,16 @@ public class Clique {
 		_Ni = new VertexSet(ot._Ni);
 	}
 	public Clique(Clique ot, int vertex){
-		_clique = new VertexSet(ot._clique);
-		_Ni = new VertexSet(ot._Ni);
+		this(ot);
 		this.addVertex(vertex);
 	}
 	public String toFile() {
-		StringBuilder ans = new StringBuilder();
-		int size=_clique.size();
-		for(int i=0;i<size;i++)
-		{
-			ans.append(_clique.at(i)).append(",");
-		return ans.toString;
+		String ans = "";
+		for(int i=0;i<this._clique.size();i++) {ans+=this._clique.at(i)+",";}
+		return ans;
 	}
-	public int size() {
-		return this._clique.size();
-		
-	}
-	public VertexSet clique() {
-		return this._clique;
-		
-	}
+	public int size() {return this._clique.size();}
+	public VertexSet clique() {return this._clique;}
 	public void addVertex(int vertex){
 		_clique.add(vertex);
 		_Ni = _Ni.intersection(_graph.Ni(vertex));
